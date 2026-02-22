@@ -16,7 +16,7 @@ resource "aws_internet_gateway" "portfolio_gw" {
 }
 
 
-# Created the subnets 
+# Create the PUBLIC subnets 
 
 resource "aws_subnet" "public_1" {
   vpc_id            = aws_vpc.portfolio_vpc.id
@@ -37,6 +37,30 @@ resource "aws_subnet" "public_2" {
 
   tags = {
     Name = "portfolio_subnet_2"
+  }
+}
+
+# Create PRIVATE subnets 
+
+resource "aws_subnet" "private_1" {
+  vpc_id            = aws_vpc.portfolio_vpc.id
+  cidr_block        = "10.0.3.0/24"
+  availability_zone = var.availability_zone[0]
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "portfolio_prv_subnet_1"
+  }
+}
+
+resource "aws_subnet" "private_2" {
+  vpc_id            = aws_vpc.portfolio_vpc.id
+  cidr_block        = "10.0.4.0/24"
+  availability_zone = var.availability_zone[1]
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "portfolio_prv_subnet_2"
   }
 }
 

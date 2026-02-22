@@ -1,18 +1,24 @@
-# The Aurora Stack: Automated AWS Infrastructure
-A fully automated, high-availability web stack deployed using Terraform.
+# AWS 3-Tier Aurora Stack 🚀
 
-## 🏗️ Architecture
-- **VPC & Networking:** Custom VPC with 2 Public Subnets across multiple Availability Zones (ap-south-1a, ap-south-1b).
-- **Load Balancing:** Application Load Balancer (ALB) acting as a single entry point, distributing traffic to healthy targets.
-- **Compute:** EC2 instances running Apache, bootstrapped via Bash User Data.
-- **Security:** Tiered Security Groups implementing the "Principle of Least Privilege."
+An automated, highly available infrastructure-as-code project deploying a professional portfolio stack.
 
-## 🚀 Key Features
-- **Zero-Touch Deployment:** Entire infrastructure is created/destroyed with a single command.
-- **High Availability:** Traffic automatically fails over if one Availability Zone goes down.
-- **Infrastructure as Code (IaC):** Modular configuration for easy scaling and maintenance.
+## 🏗️ Architecture Overview
+* **Networking:** Custom VPC with Public/Private Subnets across multiple Availability Zones.
+* **Compute:** Ubuntu EC2 instances running Apache2, provisioned via Terraform User Data.
+* **Load Balancing:** Application Load Balancer (ALB) acting as the entry point.
+* **Database:** (Work in Progress/Complete) Amazon Aurora/RDS MySQL cluster in isolated private subnets.
 
-## 🛠️ Usage
-1. `terraform init`
-2. `terraform apply -auto-approve`
-3. Access the site via the `alb_dns_name` output.
+## 🛠️ Tech Stack
+* **IaC:** Terraform
+* **Cloud:** AWS
+* **OS:** Ubuntu 24.04 LTS
+* **Web Server:** Apache (HTTPD)
+
+## 📸 Deployment Highlights
+[Insert your "Live" Page Screenshot here]
+[Insert your "Healthy Targets" Screenshot here]
+
+## 🚀 How to Run
+1. Initialize Terraform: `terraform init`
+2. Plan the deployment: `terraform plan`
+3. Apply changes: `terraform apply`

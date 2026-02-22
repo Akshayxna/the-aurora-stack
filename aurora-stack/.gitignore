@@ -1,4 +1,6 @@
+# .gitignore
 .terraform/
-*.tfstate*
-.terraform.lock.hcl
-*.tfvars
+*.tfstate
+*.tfstate.backup
+*.pem
+terraform.tfvars
