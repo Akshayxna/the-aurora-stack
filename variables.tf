@@ -1,6 +1,6 @@
 
 variable "aws_region"{
-      description = "The region where the srever is cerated"
+      description = "The region where the server is created"
       type = string
       default = "aws-east-1" 
 }
