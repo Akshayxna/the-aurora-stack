@@ -1,24 +1,36 @@
-# AWS 3-Tier Aurora Stack 🚀
+🚀 Project Overview
+The goal of this project was to move away from insecure, long-lived AWS Access Keys and implement a Keyless Authentication flow using OpenID Connect (OIDC).
 
-An automated, highly available infrastructure-as-code project deploying a professional portfolio stack.
+Key Features:
+Infrastructure-as-Code: Automated provisioning of VPC, Subnets, and EC2 instances.
 
-## 🏗️ Architecture Overview
-* **Networking:** Custom VPC with Public/Private Subnets across multiple Availability Zones.
-* **Compute:** Ubuntu EC2 instances running Apache2, provisioned via Terraform User Data.
-* **Load Balancing:** Application Load Balancer (ALB) acting as the entry point.
-* **Database:** (Work in Progress/Complete) Amazon Aurora/RDS MySQL cluster in isolated private subnets.
+Secure Auth: Used GitHub's OIDC provider to assume AWS IAM Roles dynamically.
 
-## 🛠️ Tech Stack
-* **IaC:** Terraform
-* **Cloud:** AWS
-* **OS:** Ubuntu 24.04 LTS
-* **Web Server:** Apache (HTTPD)
+CI/CD Pipeline: Automated terraform plan on every push to the main branch.
 
-## 📸 Deployment Highlights
-[Insert your "Live" Page Screenshot here]
-[Insert your "Healthy Targets" Screenshot here]
+Modular Design: Reusable Terraform modules for VPC and EC2 components.
 
-## 🚀 How to Run
-1. Initialize Terraform: `terraform init`
-2. Plan the deployment: `terraform plan`
-3. Apply changes: `terraform apply`
+🛠️ Tech Stack
+Cloud: AWS (VPC, EC2, IAM, S3 for Backend)
+
+IaC: Terraform
+
+Automation: GitHub Actions
+
+Security: OpenID Connect (OIDC)
+
+🛡️ Security Implementation (OIDC)
+Instead of storing AWS_ACCESS_KEY_ID in GitHub Secrets, this project utilizes a Trust Relationship between GitHub and AWS.
+
+GitHub issues a temporary JWT token.
+
+AWS validates the token against the configured Identity Provider.
+
+The GitHub Runner assumes a specific IAM Role with least-privilege permissions.
+
+📈 How to Run
+Configure the AWS_ROLE_ARN in your GitHub Repository Secrets.
+
+Push changes to the main branch.
+
+Monitor the progress in the Actions tab.
