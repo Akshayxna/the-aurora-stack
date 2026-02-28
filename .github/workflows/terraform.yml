@@ -12,6 +12,9 @@ permissions:
 jobs:
   Deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./aurora-stack
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -30,6 +33,3 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
